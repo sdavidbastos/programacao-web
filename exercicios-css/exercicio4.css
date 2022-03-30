@@ -1,0 +1,175 @@
+body{
+    font-family: Arial;
+}
+
+table{
+    width: 600px;
+    height: 100px;
+
+    border-collapse:collapse;
+}
+
+th {
+    text-align: center;
+    color: grey;
+}
+td{
+    text-align: center;
+}
+td:first-child{
+    text-align: left;
+    font-size: 14px;
+    color: #666666;
+    font-weight: bold;
+
+}
+
+tr{
+    border: 1px solid #DDDDDD;
+}
+
+thead th {
+    font-size: 13px;
+    font-weight: bold;
+
+    text-align: center;
+
+    color: #999999;
+}
+
+/*Negrito nas colunas primeiras duas colunas*/
+tbody td:nth-child(-n+2){
+    font-weight: bold;
+}
+
+/*Cor de fudo nas colunas pares*/
+tbody td:nth-child(even){
+    background-color: #f7f7f7;
+}
+
+/*Cor na numeracao dos times*/
+tbody tr:nth-child(n+1):nth-child(-n+3) td span{
+    color: #003366;
+
+    font-size: 18px;
+    font-weight: bold;
+
+    text-align: center;
+}
+
+tbody tr:nth-child(4) td span{
+    color: #1398BE;
+
+    font-size: 18px;
+    font-weight: bold;
+
+    text-align: center;
+}
+
+tbody tr:nth-child(n+5):nth-child(-n+12) td span{
+    color: #DE9800;
+
+    font-size: 18px;
+    font-weight: bold;
+
+    text-align: center;
+}
+
+tbody tr:nth-child(n+12):nth-child(-n+16) td span{
+    color: #CCCCCC;
+
+    font-size: 18px;
+    font-weight: bold;
+
+    text-align: center;
+}
+
+tbody tr:nth-child(n+17):nth-child(-n+20) td span{
+    color: #C91B04;
+
+    font-size: 18px;
+    font-weight: bold;
+
+    text-align: center;
+}
+
+/* Coluna de Potuacao */
+tbody tr:nth-child(2){
+    font-size: 14px;
+    color: black;
+}
+
+/* Cedulas a partir da 2 coluna */
+tbody tr td:nth-child(n+3):nth-child(-n+10){
+    font-size: 14px;
+    color: #666666;
+    text-align: center;
+}
+
+/* Cedulas com mesmo tamanho (2-1) */
+tbody tr td:nth-child(n+2):nth-child(-n+9){
+   width: 40px;
+}
+
+/*Borda diferente*/
+tbody tr:nth-child(4),
+tbody tr:nth-child(16)
+{
+    border-bottom: 2px solid #DDDDDD;
+}
+
+/* Legendas primeira linha */
+tfoot tr:nth-child(1) td span{
+    font-size: 10px;
+    color: #8F8F8F;
+    font-weight: 600;
+    text-align: left;
+}
+
+
+/* Legendas segunda linha */
+tfoot tr td div p{
+    font-size: 10px;
+    color: #555555;
+    text-align: left;
+}
+
+tfoot tr td div p span{
+    font-size: 10px;
+    color: #555555;
+    font-weight: bold;
+    text-align: left;
+}
+
+
+/*Quadrados coloridos para legenda*/
+.squad-blue{
+    display: inline-block;
+
+    width: 15px;
+    height: 15px;
+
+    border-radius: 3px;
+    background-color: #003366;
+}
+.squad-cyan{
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    border-radius: 3px;
+    background-color: #1398BE;
+}
+.squad-orange{
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    border-radius: 3px;
+    background-color: #DE9800;
+}
+.squad-red{
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    border-radius: 3px;
+    background-color: #C91B04;
+}

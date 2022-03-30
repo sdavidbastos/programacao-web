@@ -1,0 +1,47 @@
+table{
+    border-collapse: collapse;
+    width: 600px;
+    height: 150px;
+
+    font-family: Arial;
+    font-weight: bold;
+    font-size: 12px;
+    border: none;
+}
+td, th {
+    border: 1px solid #ddd;
+}
+
+th {
+    text-align: left;
+    color: white;
+}
+thead tr th{
+    background-color: #0D5188;
+}
+tbody tr th{
+    background-color: #66C5E3;
+    color: black;
+}
+tbody tr td{
+    background-color: #C7E7F3;
+}
+
+.t-center{
+    text-align: center;
+}
+.t-blue{
+    color: #0D5188;
+}
+.bg-silver{
+    background-color: silver;
+}
+.t-light{
+    font-weight: lighter;
+}
+.w-10{
+    width: 10%;
+}
+.w-15{
+    width: 15%;
+}
