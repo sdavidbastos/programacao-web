@@ -1,0 +1,31 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+section {
+  padding-top: 1px;
+  min-height: 100px;
+  width: 920px;
+  margin: 20px auto;
+  background: #ccc;
+  box-shadow: 0 0 3px #000;
+}
+aside {
+  float: left;
+  margin-right: 10px;
+  background: green;
+  width: 300px;
+  height: 200px;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+article {
+  float: left;
+  background: blue;
+  width: 600px;
+  height: 400px;
+  margin-top: 10px;
+}
+div {
+    clear: both;
+}
