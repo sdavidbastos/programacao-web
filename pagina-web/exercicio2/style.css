@@ -1,0 +1,148 @@
+/* cores */
+:root{
+    --font-color-black: #000000;
+    --font-color-primary: #234778;
+    --bg-body: #dfecfd;
+    --bg-main: #dfecfd;
+}
+/* reset */
+*,
+*:after,
+*::before
+{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+/* elementos */
+html, body{
+    width: 100vw;
+    height: 100vh;
+    color: var(--font-color-black);
+    background-color: var(--bg-body);
+}
+a{
+    text-decoration: none;
+    color: var(--font-color-black);
+}
+main{
+    background-color: var(--bg-main);
+}
+
+/* fonts */
+
+.t-primary{
+    color: var(--font-color-primary);
+}
+
+/* flex */
+.container{
+    display: flex;
+    width: 100%;
+}
+.d-flex{
+    display: flex;
+}
+.flex-wrap{
+    flex-wrap: wrap;
+}
+.flex-column{
+    flex-direction: column;
+}
+
+.justify-start{
+    justify-content: flex-start;
+}
+
+.justify-around{
+    justify-content: space-around;
+}
+
+.justify-between{
+    justify-content: space-between;
+}
+
+.justify-evenly{
+    justify-content: space-evenly;
+}
+.justify-center{
+    justify-content: center;
+}
+
+.align-center{
+    align-items: center;
+}
+
+.align-end{
+    align-items: end;
+}
+
+.align-self-end{
+    align-self: flex-end;
+}
+/* espaçamento */
+.w1{
+    width: 16px;
+}
+.w2{
+    width: 32px;
+}
+.w3{
+    width: 64px;
+}
+.w4{
+    width: 128px;
+}
+.w100{
+    width: 100%;
+}
+.h1{
+    height: 16px;
+}
+.h2{
+    height: 32px;
+}
+.h3{
+    height: 64px;
+}
+.h4{
+    height: 128px;
+}
+.h100{
+    height: 100%;
+}
+.pr{
+    padding-right: 8px;
+}
+.pl{
+    padding-left: 8px;
+}
+
+.pb{
+    padding-bottom: 8px;
+}
+.pt{
+    padding-top: 8px;
+}
+
+.m1{
+    margin: 8px;
+}
+
+.ml1{
+    margin-left: 8px;
+}
+
+.gap{
+    gap: 8px;
+}
+
+.gap1{
+    gap: 16px;
+}
+
+/* itens especificos */
+.btn-sm{
+    width: 96px;
+    height: 24px;
+}
