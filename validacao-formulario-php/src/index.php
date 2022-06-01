@@ -1,16 +1,41 @@
 <?php
 
-function valida_campos_obrigatorios(){
+function menssage_error(){
+  echo
+  "
+  <span>Campo inválid</span>
+  ";
+}
 
+function isEmpty($value){
+  return !strlen($value);
+}
+
+function validate_fields($fields)
+{
+  $errors = array(); 
+  foreach($fields as $key => $value){
+    if(isEmpty($value)){
+      $errors[] = $key;
+    }
+  }
+  return $errors;
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  echo $_SERVER;
-  $nome = $_POST['nome'];
-  $data_nascimento = $_POST['data_nascimento'];
-  $sexo = $_POST['sexo'];
+  $fields = array(
+    'name' => $_POST["name"],
+    'email' => $_POST["email"],
+    'birth_date' => $_POST["birth-date"],
+    'password' => $_POST["password"],
+    'confirm_password' => $_POST["confirm-password"],
+    'cell' => $_POST["cell"],
+    'login' => $_POST["login"],
+    'cep' => $_POST["cep"],
+    'cpf' => $_POST["cpf"],
+  );
 
-  $erros = valida_campos_obrigatorios();
+  $errors = validate_fields($fields);
 }
 ?>
 <!DOCTYPE html>
@@ -30,16 +55,35 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       <div class="input-field">
         <input type="text" name="name" id="name" placeholder="Insira Seu Nome" />
         <div class="underline"></div>
+        <?php 
+        if($errors){
+          $teste = array_search("asdasd", $errors);
+          var_dump($errors);
+          if(array_search("name", $errors)){
+            menssage_error();
+          }
+        }
+        ?>
       </div>
 
       <div class="input-field">
         <input type="text" name="email" id="email" placeholder="Insira Seu Email" />
         <div class="underline"></div>
+        <?php 
+          if($errors["email"]){
+            menssage_error();
+          }
+        ?>
       </div>
 
       <div class="input-field">
-        <input type="date" name="birthDate" id="birthDate" placeholder="Data de Nascimento" />
+        <input type="date" name="birth-date" id="birth-date" placeholder="Data de Nascimento" />
         <div class="underline"></div>
+        <?php 
+          if($errors["birth-date"]){
+            menssage_error();
+          }
+        ?>
       </div>
 
       <div class="input-field">
@@ -66,6 +110,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <input type="text" name="cpf" id="cpf" placeholder="Insira Seu CPF" />
         <div class="underline"></div>
       </div>
+      <input type="submit" value="continue" />
     </form>
   </main>
 </body>
