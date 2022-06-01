@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+  apache:
+    image: 'php:7.4-apache'
+    container_name: formulario-php
+    ports:
+      - '8000:80'
+    volumes:
+      - ./src:/var/www/html
