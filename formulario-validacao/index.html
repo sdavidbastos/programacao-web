@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formulario Jonas</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <main class="container">
+      <h2>Formulário</h2>
+      <form onsubmit="tratarSubmit(event)" name="formulario" action="#">
+        <div class="input-field">
+          <input
+            type="text"
+            name="email"
+            id="email"
+            placeholder="Insira Seu Email"
+          />
+          <div class="underline"></div>
+          <span id="email-error">Email Inválido</span>
+        </div>
+        <div class="input-field">
+          <input
+            type="text"
+            name="cidade"
+            id="cidade"
+            placeholder="Insira Sua Cidade"
+          />
+          <div class="underline"></div>
+          <span id="cidade-error">Cidade Inválida</span>
+        </div>
+
+        <div class="input-field">
+          <select id="estado" name="estado">
+            <option value="">Selecione um Estado</option>
+            <option value="AC">Acre</option>
+            <option value="AL">Alagoas</option>
+            <option value="AP">Amapá</option>
+            <option value="AM">Amazonas</option>
+            <option value="BA">Bahia</option>
+            <option value="CE">Ceará</option>
+            <option value="DF">Distrito Federal</option>
+            <option value="ES">Espírito Santo</option>
+            <option value="GO">Goiás</option>
+            <option value="MA">Maranhão</option>
+            <option value="MT">Mato Grosso</option>
+            <option value="MS">Mato Grosso do Sul</option>
+            <option value="MG">Minas Gerais</option>
+            <option value="PA">Pará</option>
+            <option value="PB">Paraíba</option>
+            <option value="PR">Paraná</option>
+            <option value="PE">Pernambuco</option>
+            <option value="PI">Piauí</option>
+            <option value="RJ">Rio de Janeiro</option>
+            <option value="RN">Rio Grande do Norte</option>
+            <option value="RS">Rio Grande do Sul</option>
+            <option value="RO">Rondônia</option>
+            <option value="RR">Roraima</option>
+            <option value="SC">Santa Catarina</option>
+            <option value="SP">São Paulo</option>
+            <option value="SE">Sergipe</option>
+            <option value="TO">Tocantins</option>
+            <option value="EX">Estrangeiro</option>
+          </select>
+          <div class="underline"></div>
+          <span id="estado-error">Estado Inválido</span>
+        </div>
+        <div class="input-field">
+          <textarea
+            name="mensagem"
+            id="mensagem"
+            placeholder="Insira Uma Mensagem"
+          ></textarea>
+          <span id="mensagem-error">Menssagem Inválida</span>
+          <div class="underline"></div>
+        </div>
+        <input type="submit" value="continue" />
+      </form>
+    </main>
+  </body>
+  <footer>
+    <script defer>
+      const [email, cidade, estado, mensagem, form] = [
+        document.querySelector("#email"),
+        document.querySelector("#cidade"),
+        document.querySelector("#estado"),
+        document.querySelector("#mensagem"),
+        document.querySelector("#formulario"),
+      ];
+      const [emailError, cidadeError, estadoError, mensagemError] = document.getElementsByTagName("span")
+
+      const conjuntoValidacoes = function (...validators) {
+        return function (value) {
+          let valid = true;
+          validators.forEach(function (validator) {
+            valid = validator(value);
+            if (!valid) return;
+          });
+          return valid;
+        };
+      };
+
+      const validacaoString = function (value) {
+        return typeof value !== "string";
+      };
+      const validacaoVazio = function (value) {
+        return !!value.trim();
+      };
+      const validacaoEmail = function (value) {
+        const validRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+        return validRegex.test(value);
+      };
+
+      const validatorDefault = conjuntoValidacoes(
+        validacaoString,
+        validacaoVazio
+      );
+      const validatorEmail = conjuntoValidacoes(
+        validacaoString,
+        validacaoVazio,
+        validacaoEmail
+      );
+      const tratarInput = function (validator, value, elementError) {
+        if (validator(value)) {
+          elementError.style.display = "none";
+          return;
+        }
+        elementError.style.display = "block";
+      };
+      const tratarSubmit = function (event) {
+        event.preventDefault();
+        tratarInput(validatorEmail, email.value, emailError);
+        tratarInput(validatorDefault, cidade.value, cidadeError);
+        tratarInput(
+          validatorDefault,
+          estado.options[estado.selectedIndex].value,
+          estadoError
+        );
+        tratarInput(validatorDefault, mensagem.value, mensagemError);
+      };
+    </script>
+  </footer>
+</html>
