@@ -1,10 +1,7 @@
 <?php
 
 function menssage_error(){
-  echo
-  "
-  <span>Campo inválid</span>
-  ";
+  echo "<span>Campo inválid</span>";
 }
 
 function isEmpty($value){
@@ -56,13 +53,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <input type="text" name="name" id="name" placeholder="Insira Seu Nome" />
         <div class="underline"></div>
         <?php 
-        if($errors){
-          $teste = array_search("asdasd", $errors);
-          var_dump($errors);
-          if(array_search("name", $errors)){
-            menssage_error();
+          if($errors){
+            if(array_search("name", $errors)){
+              menssage_error();
+            }
           }
-        }
         ?>
       </div>
 
@@ -70,8 +65,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <input type="text" name="email" id="email" placeholder="Insira Seu Email" />
         <div class="underline"></div>
         <?php 
-          if($errors["email"]){
-            menssage_error();
+          if($errors){
+            if(array_search("email", $errors)){
+              menssage_error();
+            }
           }
         ?>
       </div>
@@ -80,8 +77,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <input type="date" name="birth-date" id="birth-date" placeholder="Data de Nascimento" />
         <div class="underline"></div>
         <?php 
-          if($errors["birth-date"]){
-            menssage_error();
+          if($errors){
+            if(array_search("birth_date", $errors) >= 0){
+              menssage_error();
+            }
           }
         ?>
       </div>
@@ -89,26 +88,68 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       <div class="input-field">
         <input type="password" name="password" id="password" placeholder="Insira Sua Senha" />
         <div class="underline"></div>
+        <?php 
+          if($errors){
+            if(array_search("password", $errors) >= 0){
+              menssage_error();
+            }
+          }
+        ?>
       </div>
       <div class="input-field">
         <input type="password" name="confirm-password" id="confirm-password" placeholder="Comfirme Sua Senha" />
         <div class="underline"></div>
+        <?php 
+          if($errors){
+            if(array_search("confirm_password", $errors) >= 0){
+              menssage_error();
+            }
+          }
+        ?>
       </div>
       <div class="input-field">
         <input type="text" name="cell" id="cell" placeholder="Insira Seu Telefone" />
         <div class="underline"></div>
+        <?php 
+          if($errors){
+            if(array_search("cell", $errors) >= 0){
+              menssage_error();
+            }
+          }
+        ?>
       </div>
       <div class="input-field">
         <input type="text" name="login" id="login" placeholder="Insira Seu Login" />
         <div class="underline"></div>
+        <?php 
+          if($errors){
+            if(array_search("login", $errors) >= 0){
+              menssage_error();
+            }
+          }
+        ?>
       </div>
       <div class="input-field">
         <input type="text" name="cep" id="cep" placeholder="Insira Seu CEP" />
         <div class="underline"></div>
+        <?php 
+          if($errors){
+            if(array_search("cep", $errors) >= 0){
+              menssage_error();
+            }
+          }
+        ?>
       </div>
       <div class="input-field">
         <input type="text" name="cpf" id="cpf" placeholder="Insira Seu CPF" />
         <div class="underline"></div>
+        <?php 
+          if($errors){
+            if(array_search("cpf", $errors) >= 0){
+              menssage_error();
+            }
+          }
+        ?>
       </div>
       <input type="submit" value="continue" />
     </form>
